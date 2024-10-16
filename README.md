@@ -66,9 +66,7 @@ If there are any fields you are unsure how to fill out, be sure to use the ? mar
 ![heidisql](https://imgur.com/3FNv7pk.png)<br><br>
 Now we can go back to the osTicket installer and press install now. If done correctly, we should be met with a congrats screen like so. <br>
 ![congrats](https://imgur.com/YhuhLUV.png)<br><br>
-In most cases this would be finished but I wanted to double check if it was completed properly. So I 
-![browse](https://imgur.com/TzViGwq.png)<br>
-This takes us to a login page for osTicket. I then used the admin credentials to login. If everything is installed correctly we should be met with a page like this.
+In most cases this would be finished but I wanted to double check if it was completed properly. So I went to the [admin login page](http://localhost/osTicket/scp/login.php) for osTicket and used the admin credentials to login. If everything is installed correctly we should be met with a page like this.
 ![doublecheck](https://imgur.com/cz3LDZ1.png)<br>
 This is confirmation that we have finished installing osTicket on our VM. Next I started to setup the roles, departments and agents. 
 
