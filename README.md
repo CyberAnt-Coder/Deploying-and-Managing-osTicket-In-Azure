@@ -47,14 +47,30 @@ From here we click the blue link that says "Register new PHP version" and find t
 Next, I downloaded the osTicket-v1.15.8 file found in the doc and moved just the upload folder into C:\inetpub\wwwroot.<br>
 ![osTicket](https://imgur.com/parzeS9.png)<br>
 ![move](https://imgur.com/J5eWC61.png)<br><br>
-From here, rename the file from upload to osTicket. Now we can open osTicket in IIS. In IIS, click on the left side -> default websites -> osTicket. This will open up a browser with the osTitcket installer. <br>
-![osTicketbrowser](https://imgur.com/KTROvvb.png)<br><br>
+From here, rename the file from upload to osTicket. Now we can open osTicket in IIS. In IIS, click on the left side -> default websites -> osTicket. Then on the right side we can click on Browse*:80(http) This will open up a browser with the osTitcket installer. <br>
+![osTicketbrowser](https://imgur.com/KTROvvb.png) ![browse80](https://imgur.com/TzViGwq.png)<br><br>
 On the installer page, we can see that we are missing a few prerequisites. To fix this we must go back to IIS. First press on the PHP Manager button, then at the bottom click "enable or disable an extension".<br>
 ![extensions](https://imgur.com/YyTtzBA.png)<br><br>
 From the installer, we can see the 3 extensions we are missing are the php_imap.dll, php_intl.dll, and the php_opcache.dll extensions. Enable all of these and refresh the page. From here we can see all the extensions we enabled now have a green checkmark next to them.<br>
 ![post](https://imgur.com/5h6xYGY.png)<br><br>
-I skipped the bottom 2 as performance does not matter for us in this lab scenario. However if we were to use it for a real life application, I would recommend enabling these extensions as well. For the next step, I went back into the C:\inetpub\wwwroot directory and opened up the include folder. From here I found the ost-sampleconfig.php file. For the installer to use these files and install osTicket for us, we must give it temporary elavated privileges. To do so I opened the properties of the files, renamed it to ost-config, then I went to the security tab and clicked advanced.<br>
+I skipped the bottom 2 as performance does not matter for us in this lab scenario. However if we were to use it for a real life application, I would recommend enabling these extensions as well. For the next step, I went back into the C:\inetpub\wwwroot directory and opened up the include folder. From here I found the ost-sampleconfig.php file. For the installer to use these files and install osTicket for us, we must give it temporary elavated privileges. To do so I opened the properties of the files, renamed it to ost-config, then I went to the security tab and disabled inheritence and clicked onto the advanced tab.<br>
+![change name](https://imgur.com/vmGAujm.png)<br><br>
 ![properties](https://imgur.com/tVJ1Ze1.png)<br><br>
+From here, I clicked "select a principle" and typed Everyone in the box below. Before clicking OK, it is important to check the names to ensure you are giving permissions to a real group.
+![everyone](https://imgur.com/z6AmNjq.png)<br>
+After I clicked OK, I checked the box that says Full control and clicked OK once again. 
+![fullcontrol](https://imgur.com/eJQBs3b.png)<br><br>
+After this apply your changes and then we can move onto the next step. We return to the osTicket installer and click continue. This takes us to a bunch of different fields for us to fill out ourselves. For my lab, I filled out the boxes as below.<br>
+![osticketcresds](https://imgur.com/AeJJHMI.png)<br><br>
+If there are any fields you are unsure how to fill out, be sure to use the ? mark beside each box to check what should go into each space. Make sure to take note of all the passwords and usernames used. Next I installed HeidiSQL from the doc from earlier. This will allow us to interact with our created database. Once you install HeidiSQL, and run it, click the New button on the bottom left side. Rename the new session as osTicket and enter in the admin username and password from the osTicket credential page.  
+![heidisql](https://imgur.com/3FNv7pk.png)<br><br>
+Now we can go back to the osTicket installer and press install now. If done correctly, we should be met with a congrats screen like so. <br>
+![congrats](https://imgur.com/YhuhLUV.png)<br><br>
+In most cases this would be finished but I wanted to double check if it was completed properly. So I 
+![browse](https://imgur.com/TzViGwq.png)<br>
+This takes us to a login page for osTicket. I then used the admin credentials to login. If everything is installed correctly we should be met with a page like this.
+![doublecheck](https://imgur.com/cz3LDZ1.png)<br>
+This is confirmation that we have finished installing osTicket on our VM. Next I started to setup the roles, departments and agents. 
 
 
 
